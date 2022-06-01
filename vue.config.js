@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = defineConfig({
   transpileDependencies: [
@@ -15,14 +16,14 @@ module.exports = defineConfig({
         },
       ],
     },
-    // plugins: [
-    //   new CompressionPlugin({
-    //     test: /\.(js|css|html|svg|json)(\?.*)?$/i, // which files should be compressed
-    //     filename: '[file].gz[query]', // compressed filename
-    //     algorithm: 'gzip', // use gzip compression
-    //     minRatio: 1, // compression rate less than 1
-    //     // deleteOriginalAssets: false, // delete the uncompressed file. Set it carefully. If you want to provide non gzip resources, you can set it to false or not
-    //   }),
-    // ],
+    plugins: [
+      new CompressionPlugin({
+        test: /\.(js|css|html|svg|json)(\?.*)?$/i, // which files should be compressed
+        filename: '[file].gz[query]', // compressed filename
+        algorithm: 'gzip', // use gzip compression
+        minRatio: 1, // compression rate less than 1
+        // deleteOriginalAssets: false, // delete the uncompressed file. Set it carefully. If you want to provide non gzip resources, you can set it to false or not
+      }),
+    ],
   },
 });

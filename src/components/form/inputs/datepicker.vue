@@ -65,7 +65,8 @@
         :title-date-format="titleDateFormat"
         :weekday-format="dayFormat"
         @change="handleChange"
-        @input="menu = false" />
+        @input="menu = false"
+      />
     </v-menu>
 
     <p v-if="invalid && errors.length" class="red--text">{{ errors[0] }}</p>

@@ -5,11 +5,20 @@ import router from './router';
 import vuetify from './plugins/vuetify';
 import i18n from './plugins/i18n';
 // Components
-import App from './views/App/App';
+import App from './views/App/app';
 // styles
 import '../public/styles/main.scss';
 
 Vue.config.productionTip = false;
+
+declare global {
+  interface Window {
+    $config: any;
+    $disableNewRequestsPeriod: any;
+    ShowLoader(): void;
+    HideLoader(): void;
+  }
+}
 
 new Vue({
   i18n,
